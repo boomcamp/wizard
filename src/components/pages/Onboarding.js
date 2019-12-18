@@ -23,8 +23,11 @@ import { BusinessSizeForm } from '../forms/BusinessSizeForm';
 import { WizardStep } from '../WizardStep';
 
 const styles = {
-  backgroundColor: '#ceddce',
   padding: '8px',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
 };
 
 const hasStep = path => /step-[1-7]$/.test(path);
@@ -60,16 +63,14 @@ export const Onboarding = () => {
 
   return (
     <div style={styles}>
-      <h1>Onboarding</h1>
-      <div>{JSON.stringify(formData, null, 4)}</div>
       <Switch>
         <Route path={`${path}/step-1`}>
-          <WizardStep title="Step 1">
+          <WizardStep title="What's your name?">
             <NameForm formKey="names" next={nextStep(1)} formData={formData} />
           </WizardStep>
         </Route>
         <Route path={`${path}/step-2`}>
-          <WizardStep title="Step 2">
+          <WizardStep title="What's your email address?">
             <EmailForm
               formKey="email"
               formData={formData}
@@ -79,7 +80,7 @@ export const Onboarding = () => {
           </WizardStep>
         </Route>
         <Route path={`${path}/step-3`}>
-          <WizardStep title="Step 3">
+          <WizardStep title="What's your title?">
             <TitleAndAccessForm
               formKey="titleAndAccess"
               formData={formData}
@@ -89,7 +90,7 @@ export const Onboarding = () => {
           </WizardStep>
         </Route>
         <Route path={`${path}/step-4`}>
-          <WizardStep title="Step 4">
+          <WizardStep title="Business Info?">
             <BusinessIdentifierForm
               formKey="businessIdentifier"
               formData={formData}
@@ -99,7 +100,7 @@ export const Onboarding = () => {
           </WizardStep>
         </Route>
         <Route path={`${path}/step-5`}>
-          <WizardStep title="Step 5">
+          <WizardStep title="Business Address?">
             <BusinessAddressForm
               formKey="businessAddress"
               formData={formData}
@@ -109,7 +110,7 @@ export const Onboarding = () => {
           </WizardStep>
         </Route>
         <Route path={`${path}/step-6`}>
-          <WizardStep title="Step 6">
+          <WizardStep title="Tell us about your industry.">
             <BusinessIndustryForm
               formKey="businessIndustry"
               formData={formData}
@@ -119,7 +120,7 @@ export const Onboarding = () => {
           </WizardStep>
         </Route>
         <Route path={`${path}/step-7`}>
-          <WizardStep title="Step 7">
+          <WizardStep title="How big is your business?">
             <BusinessSizeForm
               formKey="businessSize"
               formData={formData}

@@ -10,9 +10,6 @@ import { Onboarding } from './components/pages/Onboarding';
 function App() {
   return (
     <Router>
-      <header>
-        <h1>Wizard</h1>
-      </header>
       <main>
         <Switch>
           <Route path="/onboarding">

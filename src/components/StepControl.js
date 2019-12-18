@@ -8,15 +8,20 @@ const StepButton = styled.button`
   border: none;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
 export const StepControl = ({ valid, hasNext, hasPrev, onNext, onPrev }) => {
   return (
-    <React.Fragment>
-      {hasPrev && <StepButton onClick={onPrev}>Previous</StepButton>}
-      {hasNext && (
-        <StepButton disabled={!valid} onClick={onNext}>
-          Next
-        </StepButton>
-      )}
-    </React.Fragment>
+    <ButtonContainer>
+      <StepButton disabled={!hasPrev} onClick={onPrev}>
+        Previous
+      </StepButton>
+      <StepButton disabled={!valid} onClick={onNext}>
+        Next
+      </StepButton>
+    </ButtonContainer>
   );
 };

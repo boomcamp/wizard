@@ -10,6 +10,7 @@ export const NameForm = props => {
         <React.Fragment>
           <InputContainer error={errors.firstName}>
             <input
+              className={errors.firstName ? 'error' : ''}
               name="firstName"
               type="text"
               placeholder="First Name"

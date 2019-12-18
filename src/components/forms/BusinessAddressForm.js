@@ -24,26 +24,32 @@ export const BusinessAddressForm = props => {
               ref={register({ required: 'A city is required' })}
             />
           </InputContainer>
-          <InputContainer error={errors.state}>
-            <select
-              name="state"
-              ref={register({ required: 'State is required' })}
-            >
-              <option value="">Please select a state</option>
-              <option value="utah">Utah</option>
-              <option value="albay">Albay</option>
-            </select>
-          </InputContainer>
-          <InputContainer error={errors.country}>
-            <select
-              name="country"
-              ref={register({ required: 'Country is required' })}
-            >
-              <option value="">Please select country</option>
-              <option value="usa">U.S.A.</option>
-              <option value="philippines">Philippines</option>
-            </select>
-          </InputContainer>
+          <fieldset>
+            <legend>State</legend>
+            <InputContainer error={errors.state}>
+              <select
+                name="state"
+                ref={register({ required: 'State is required' })}
+              >
+                <option value="">Please select a state</option>
+                <option value="utah">Utah</option>
+                <option value="albay">Albay</option>
+              </select>
+            </InputContainer>
+          </fieldset>
+          <fieldset>
+            <legend>Country</legend>
+            <InputContainer error={errors.country}>
+              <select
+                name="country"
+                ref={register({ required: 'Country is required' })}
+              >
+                <option value="">Please select country</option>
+                <option value="usa">U.S.A.</option>
+                <option value="philippines">Philippines</option>
+              </select>
+            </InputContainer>
+          </fieldset>
           <InputContainer error={errors.postalCode}>
             <input
               name="postalCode"
