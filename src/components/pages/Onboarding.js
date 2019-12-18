@@ -7,6 +7,9 @@ import {
   useLocation,
 } from 'react-router-dom';
 
+// hooks
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+
 // form components
 import { NameForm } from '../forms/NameForm';
 import { EmailForm } from '../forms/EmailForm';
@@ -31,8 +34,6 @@ export const Onboarding = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const [formData, setFormData] = React.useState({});
-
   React.useEffect(() => {
     // if not on valid step then update url to valid step
     if (!hasStep(location.pathname)) {
@@ -40,6 +41,7 @@ export const Onboarding = () => {
     }
   }, []);
 
+  const [formData, setFormData] = useLocalStorage('formData', {});
   const nextStep = step => formValues => {
     setFormData({
       ...formData,
