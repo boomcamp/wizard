@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { StepForm } from './StepForm';
-import { InputError } from './input/InputError';
 import { InputContainer } from './input/InputContainer';
 
 export const NameForm = props => {
@@ -9,7 +8,7 @@ export const NameForm = props => {
     <StepForm {...props}>
       {({ register, errors }) => (
         <React.Fragment>
-          <InputContainer>
+          <InputContainer error={errors.firstName}>
             <input
               name="firstName"
               type="text"
@@ -18,9 +17,8 @@ export const NameForm = props => {
                 required: 'First Name is required',
               })}
             />
-            <InputError error={errors.firstName} />
           </InputContainer>
-          <InputContainer>
+          <InputContainer error={errors.lastName}>
             <input
               name="lastName"
               type="text"
@@ -29,7 +27,6 @@ export const NameForm = props => {
                 required: 'Last Name is required',
               })}
             />
-            <InputError error={errors.lastName} />
           </InputContainer>
         </React.Fragment>
       )}

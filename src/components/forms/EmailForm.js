@@ -2,14 +2,13 @@ import React from 'react';
 
 // components
 import { StepForm } from './StepForm';
-import { InputError } from './input/InputError';
 import { InputContainer } from './input/InputContainer';
 
 export const EmailForm = props => {
   return (
     <StepForm {...props}>
       {({ register, errors }) => (
-        <InputContainer>
+        <InputContainer error={errors.email}>
           <input
             name="email"
             type="email"
@@ -18,7 +17,6 @@ export const EmailForm = props => {
               required: 'Email address is required',
             })}
           />
-          <InputError error={errors.email} />
         </InputContainer>
       )}
     </StepForm>
